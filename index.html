@@ -936,6 +936,33 @@
 </style>
 </head>
 <body>
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║  JAK AKTYWOWAĆ LINKI DLA KOLEJNYCH KSIĄŻEK (Book 2, 3 ... 9)           ║
+║  HOW TO ACTIVATE LINKS FOR NEW BOOKS                                    ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║  Dla każdej nowej książki wykonaj 3 kroki:                              ║
+║                                                                          ║
+║  KROK 1 — znajdź blok danej książki (np. BOOK 2).                       ║
+║  KROK 2 — usuń linię z fallback href="#books":                           ║
+║     <a href="#books" class="book-buy-btn">...</a>                        ║
+║     <a href="#books" class="book-review-btn">...</a>                     ║
+║  KROK 3 — odkomentowaćˆ właściwy link (usuń <!-- i -->):                ║
+║     <!-- Booklinker Book N: <a href="https://mybook.to/...">...</a> --> ║
+║     staje się:                                                           ║
+║     <a href="https://mybook.to/DontFearAI-HubN" ...>Buy on Amazon</a>  ║
+║                                                                          ║
+║  Dla recenzji: w komentarzu Review Book N wstaw ASIN po "?asin="        ║
+║                                                                          ║
+║  BOOKLINKER URLS:                                                        ║
+║   Book 1 (AKTYWNY): https://mybook.to/DontFearAI-Hub                   ║
+║   Book 2:           https://mybook.to/DontFearAI-Hub2                  ║
+║   Book 3:           https://mybook.to/DontFearAI-Hub3                  ║
+║   Book 4:           https://mybook.to/DontFearAI-Hub4                  ║
+║   Book 5-9:         https://mybook.to/DontFearAI-Hub5 ... Hub9         ║
+╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
 
 <!-- ══ STICKY SIDEBAR NAV ══ -->
 <nav class="side-nav" id="sideNav" aria-label="Page navigation">
@@ -959,13 +986,6 @@
     <li><a href="#community" class="side-nav-link">Join the AI Community</a></li>
     <li><a href="https://privacy.aidorzeczy.com" target="_blank" rel="noopener" class="side-nav-link">Privacy Policy</a></li>
   </ul>
-  <!--
-    ╔══════════════════════════════════════════════════════════════════════╗
-    ║  SIDEBAR CTA — Booklinker · Book 1                                  ║
-    ║  ASIN Book 1: B0GXR8GK2L                                         ║
-    ║  ✅ AKTYWNY LINK (Booklinker): https://mybook.to/DontFearAI-Hub         ║
-    ╚══════════════════════════════════════════════════════════════════════╝
-  -->
   <!-- Booklinker Book 1: <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="nav-cta side-nav-link">&#x1F513; Unlock Your Prompts</a> -->
   <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="nav-cta side-nav-link">&#x1F513; Unlock Your Prompts</a>
 </nav>
@@ -979,13 +999,6 @@
   <p class="hero-sub"><strong style="color:#F97316;">You already have ChatGPT. It's FREE.</strong> You're just not using it right. These nine short books give you the exact prompts — tested, formatted, ready to paste. No courses. No tech knowledge. No wasted evenings staring at a blank screen.</p>
   <p style="margin-top:16px;font-size:clamp(1rem,2vw,1.2rem);font-weight:600;color:#F97316;text-shadow:0 2px 16px rgba(249,115,22,0.45);letter-spacing:0.01em;">A &#39;prompt&#39; is just what you type to tell AI what to do.</p>
   <div class="hero-cta-group">
-    <!--
-    ╔══════════════════════════════════════════════════════════════════════╗
-    ║  HERO CTA — Booklinker · Book 1 (główny przycisk nad foldem)        ║
-    ║  ASIN Book 1: B0GXR8GK2L                                         ║
-    ║  ✅ AKTYWNY LINK (Booklinker): https://mybook.to/DontFearAI-Hub         ║
-    ╚══════════════════════════════════════════════════════════════════════╝
-    -->
     <!-- Booklinker Book 1: <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="btn-primary">&#x1F513; Unlock Your Prompts on Amazon — Start Reading Today</a> -->
     <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="btn-primary">&#x1F513; Unlock Your Prompts on Amazon — Start Reading Today</a>
   </div>
@@ -1054,12 +1067,8 @@
           <p class="book-desc">That email has been sitting in your drafts for three days. Four ready-to-use prompt templates let you say no, write complaints that get results, and decode confusing letters — in seconds, not hours.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book1.aidorzeczy.com" target="_blank" rel="noopener"><span style="color:#ff6600;font-weight:800;">TRY</span> book1.aidorzeczy.com</a></div>
           <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 1 — Booklinker links                                           ║
-            ║  ASIN: B0GXR8GK2L                                                 ║
-            ║  ✅ BUY    → https://mybook.to/DontFearAI-Hub                    ║
-            ║  ✅ REVIEW → https://www.amazon.com/review/create-review?asin=B0GXR8GK2L ║
-            ╚══════════════════════════════════════════════════════════════════════╝
+            BOOK 1 — ASIN: B0GXR8GK2L | Booklinker: https://mybook.to/DontFearAI-Hub
+            BUY aktywny / REVIEW aktywny
           -->
           <!-- Booklinker Book 1: <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a> -->
           <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
@@ -1080,12 +1089,8 @@
           <p class="book-desc">Sunday evening — what's for dinner, where did the week go? Drop your fridge contents into chat and get a full meal plan, shopping list, and weekly schedule. Five hours back, every single week.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book2.aidorzeczy.com" target="_blank" rel="noopener">book2.aidorzeczy.com</a></div>
           <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 2 — Booklinker links                                           ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 2                     ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub2                   ║
-            ║  REVIEW → https://www.amazon.com/review/create-review?asin=ASIN_BOOK_2 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
+            BOOK 2 — ZAPARKOWANY. Po publikacji: odkomentuj link poniżej, usuń href="#books"
+            Booklinker: https://mybook.to/DontFearAI-Hub2
           -->
           <!-- Booklinker Book 2: <a href="https://mybook.to/DontFearAI-Hub2" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a> -->
           <a href="#books" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
@@ -1106,12 +1111,8 @@
           <p class="book-desc">End of the month, less money than expected — and you did nothing extravagant. Paste last month's transactions, get a plain-English breakdown, five savings ideas, and a budget you'll actually stick to.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book3.aidorzeczy.com" target="_blank" rel="noopener">book3.aidorzeczy.com</a></div>
           <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 3 — Booklinker links                                           ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 3                     ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub3                   ║
-            ║  REVIEW → https://www.amazon.com/review/create-review?asin=ASIN_BOOK_3 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
+            BOOK 3 — ZAPARKOWANY. Po publikacji: odkomentuj link poniżej, usuń href="#books"
+            Booklinker: https://mybook.to/DontFearAI-Hub3
           -->
           <!-- Booklinker Book 3: <a href="https://mybook.to/DontFearAI-Hub3" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a> -->
           <a href="#books" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
@@ -1131,12 +1132,8 @@
           <h3 class="book-title">Movies &amp; What to Watch</h3>
           <p class="book-desc">You've been scrolling for forty minutes. Nothing looks right. Tell AI who's watching, what kind of evening it is, what you've seen — and get a perfect match in under two minutes.</p>
           <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 4 — Booklinker links                                           ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 4                     ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub4                   ║
-            ║  REVIEW → https://www.amazon.com/review/create-review?asin=ASIN_BOOK_4 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
+            BOOK 4 — ZAPARKOWANY. Po publikacji: odkomentuj link poniżej, usuń href="#books"
+            Booklinker: https://mybook.to/DontFearAI-Hub4
           -->
           <!-- Booklinker Book 4: <a href="https://mybook.to/DontFearAI-Hub4" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a> -->
           <a href="#books" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
@@ -1155,15 +1152,6 @@
           <div class="book-number">Book 5 · Coming Soon</div>
           <h3 class="book-title">Bedtime Stories for Your Child</h3>
           <p class="book-desc">"Tell me a story." Four words that feel like a mountain at 9pm. Get a completely original tale built around your child's name, favourite animal, and best friend — every single night, in five minutes.</p>
-          <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 5 — Coming Soon (zaparkowany link)                         ║
-            ║  Po publikacji podmień na:                                          ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 5                   ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub5                 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
-          -->
-          <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
           <!-- Booklinker Book 5: <a href="https://mybook.to/DontFearAI-Hub5" class="book-soon-btn" target="_blank" rel="noopener noreferrer">&#x23F3; Coming Soon on Amazon</a> -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1179,15 +1167,6 @@
           <div class="book-number">Book 6 · Coming Soon</div>
           <h3 class="book-title">Games &amp; Fun</h3>
           <p class="book-desc">Everyone is in the same room. Nobody knows what to do. Generate complete, ready-to-play games tailored to the ages, interests, and energy level of whoever is actually there — in under two minutes.</p>
-          <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 6 — Coming Soon (zaparkowany link)                         ║
-            ║  Po publikacji podmień na:                                          ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 6                   ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub6                 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
-          -->
-          <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
           <!-- Booklinker Book 6: <a href="https://mybook.to/DontFearAI-Hub6" class="book-soon-btn" target="_blank" rel="noopener noreferrer">&#x23F3; Coming Soon on Amazon</a> -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1203,15 +1182,6 @@
           <div class="book-number">Book 7 · Coming Soon</div>
           <h3 class="book-title">Calm Parenting</h3>
           <p class="book-desc">You said you wouldn't lose your temper. Then you did — again. Get calmer, clearer words for the flashpoints that push every parent past their limit: the standoff, the sibling war, the refused request asked a seventh time.</p>
-          <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 7 — Coming Soon (zaparkowany link)                         ║
-            ║  Po publikacji podmień na:                                          ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 7                   ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub7                 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
-          -->
-          <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
           <!-- Booklinker Book 7: <a href="https://mybook.to/DontFearAI-Hub7" class="book-soon-btn" target="_blank" rel="noopener noreferrer">&#x23F3; Coming Soon on Amazon</a> -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1227,15 +1197,6 @@
           <div class="book-number">Book 8 · Coming Soon</div>
           <h3 class="book-title">Gifts &amp; What to Buy</h3>
           <p class="book-desc">Birthday in four days. No idea what to buy. Everything online looks too impersonal or too expensive. Describe the person and the occasion — get a thoughtful, tailored shortlist in under two minutes.</p>
-          <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 8 — Coming Soon (zaparkowany link)                         ║
-            ║  Po publikacji podmień na:                                          ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 8                   ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub8                 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
-          -->
-          <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
           <!-- Booklinker Book 8: <a href="https://mybook.to/DontFearAI-Hub8" class="book-soon-btn" target="_blank" rel="noopener noreferrer">&#x23F3; Coming Soon on Amazon</a> -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1251,15 +1212,6 @@
           <div class="book-number">Book 9 · Coming Soon</div>
           <h3 class="book-title">Wishes &amp; Greetings</h3>
           <p class="book-desc">The card is in front of you. The pen is in your hand. Every sentence sounds too formal, too casual, or just not right. Describe the person and the tone — get warm, personal words that sound exactly like you.</p>
-          <!--
-            ╔══════════════════════════════════════════════════════════════════════╗
-            ║  BOOK 9 — Coming Soon (zaparkowany link)                         ║
-            ║  Po publikacji podmień na:                                          ║
-            ║  ⏳ ZAPARKOWANY — wstaw ASIN po publikacji Book 9                   ║
-            ║  BUY    → https://mybook.to/DontFearAI-Hub9                 ║
-            ╚══════════════════════════════════════════════════════════════════════╝
-          -->
-          <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
           <!-- Booklinker Book 9: <a href="https://mybook.to/DontFearAI-Hub9" class="book-soon-btn" target="_blank" rel="noopener noreferrer">&#x23F3; Coming Soon on Amazon</a> -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1484,25 +1436,13 @@
   <div class="footer-logo">Don&rsquo;t Fear <span>AI</span></div>
   <p>Part of the <strong style="color:rgba(255,255,255,0.5)">Don't Fear AI</strong> book series · ebooks.aidorzeczy.com</p>
   <div class="footer-links">
-    <!--
-    ╔════════════════════════════════════════════════════════════════════════╗
-    ║  FOOTER — Booklinker links (Books 1–4 opublikowane)                   ║
-    ║  Zastąp ASIN_BOOK_N rzeczywistym ASIN z KDP dla każdej książki.       ║
-    ║  Aktywny Book 1: https://mybook.to/DontFearAI-Hub                     ║
-    ║  Zaparkowane Books 2-4: mybook.to/DontFearAI-Hub2 … Hub4             ║
-    ║  Dla Books 5–9 (nieopublikowanych) usuń linki lub zakomentuj je.      ║
-    ╚════════════════════════════════════════════════════════════════════════╝
-    -->
-    <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
+    <!-- FOOTER LINKS: Book 1 aktywny, Books 2-4 zaparkowane -->
     <!-- Booklinker Book 1: <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer">Book 1 on Amazon</a> -->
     <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer">Book 1 on Amazon</a>
-    <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
     <!-- Booklinker Book 2: <a href="https://mybook.to/DontFearAI-Hub2" target="_blank" rel="noopener noreferrer">Book 2 on Amazon</a> -->
     <a href="#books">Book 2 on Amazon</a>
-    <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
     <!-- Booklinker Book 3: <a href="https://mybook.to/DontFearAI-Hub3" target="_blank" rel="noopener noreferrer">Book 3 on Amazon</a> -->
     <a href="#books">Book 3 on Amazon</a>
-    <!-- 🔁 TYMCZASOWO: link wskazuje na hub. Odkomentuj właściwy link poniżej po publikacji. -->
     <!-- Booklinker Book 4: <a href="https://mybook.to/DontFearAI-Hub4" target="_blank" rel="noopener noreferrer">Book 4 on Amazon</a> -->
     <a href="#books">Book 4 on Amazon</a>
   </div>
