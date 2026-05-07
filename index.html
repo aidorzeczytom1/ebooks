@@ -1,4 +1,39 @@
 <!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  Don't Fear AI — Book Series Hub Page
+  ebooks.aidorzeczy.com
+═══════════════════════════════════════════════════════════════════════════════
+
+  📖  STAN OBECNY:
+  • BOOK 1 — opublikowana (Booklinker: https://mybook.to/DontFearAI-Hub
+                            ASIN: B0GXR8GK2L)
+  • BOOK 2..9 — Coming Soon (gotowe szablony, czekają na aktywację)
+
+  📋  CO ZROBIĆ PO OPUBLIKOWANIU KOLEJNEJ KSIĄŻKI (np. Book 2):
+
+   1) Znajdź sekcję komentarza "BOOK 2 — INSTRUKCJA AKTYWACJI..."
+      (przewiń do <!-- ── BOOK 2 ── -->)
+
+   2) Wykonaj 5 kroków opisanych w komentarzu:
+      • zmień "Coming Soon" na "Available Now"
+      • USUŃ przycisk z klasą book-soon-btn
+      • wklej 2 aktywne przyciski: book-buy-btn + book-review-btn
+      • wpisz Booklinker: https://mybook.to/DontFearAI-HubX  (X = numer książki)
+      • wpisz ASIN książki w przycisku review
+
+   3) W FOOTER (na końcu pliku) zmień href="#books" na link Booklinker
+
+  🔧  POPRAWKI W TEJ WERSJI:
+  • naprawiono niezamknięty komentarz w sekcji Book 1 (przyciski Buy/Review
+    Book 1 NIE wyświetlały się i HTML był łamany)
+  • naprawiono pozioma belka "Unlock Your Prompts" - teraz scrolluje do
+    sekcji #books, nie przekierowuje od razu do Amazon
+  • usunięto martwe linki href="#" w stopce
+  • Books 2..9 zostały ujednolicone (wszystkie jako Coming Soon z gotowymi
+    szablonami aktywacji)
+═══════════════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -959,7 +994,7 @@
     <li><a href="#community" class="side-nav-link">Join the AI Community</a></li>
     <li><a href="https://privacy.aidorzeczy.com" target="_blank" rel="noopener" class="side-nav-link">Privacy Policy</a></li>
   </ul>
-  <a href="#" class="nav-cta side-nav-link">&#x1F513; Unlock Your Prompts</a>
+  <a href="#books" class="nav-cta side-nav-link">&#x1F513; Unlock Your Prompts</a>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -972,10 +1007,19 @@
   <p style="margin-top:16px;font-size:clamp(1rem,2vw,1.2rem);font-weight:600;color:#F97316;text-shadow:0 2px 16px rgba(249,115,22,0.45);letter-spacing:0.01em;">A &#39;prompt&#39; is just what you type to tell AI what to do.</p>
   <div class="hero-cta-group">
     <!--
-      ⚠️ HERO CTA — Po publikacji podmień href="#books" na link do Book 1 na Amazon:
-      <a href="https://www.amazon.com/dp/ASIN-1" target="_blank" rel="noopener noreferrer">Unlock Your Prompts on Amazon</a>
+      ════════════════════════════════════════════════════════════════════════
+      ⚠️  HERO CTA — POZIOMA BELKA „Unlock Your Prompts"
+      ════════════════════════════════════════════════════════════════════════
+      Belka prowadzi do sekcji #books (lista wszystkich książek serii),
+      a NIE bezpośrednio do Amazon. Użytkownik wybiera konkretną książkę
+      z siatki książek poniżej.
+
+      Jeśli chcesz, by belka prowadziła bezpośrednio do Booklinker,
+      podmień href="#books" na: href="https://mybook.to/DontFearAI-Hub"
+      i dodaj: target="_blank" rel="noopener noreferrer"
+      ════════════════════════════════════════════════════════════════════════
     -->
-    <a href=https://mybook.to/DontFearAI-Hub class="btn-primary">&#x1F513; Unlock Your Prompts on Amazon — Start Reading Today</a>
+    <a href="#books" class="btn-primary">&#x1F513; Unlock Your Prompts on Amazon — Start Reading Today</a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -1042,15 +1086,17 @@
           <p class="book-desc">That email has been sitting in your drafts for three days. Four ready-to-use prompt templates let you say no, write complaints that get results, and decode confusing letters — in seconds, not hours.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book1.aidorzeczy.com" target="_blank" rel="noopener"><span style="color:#ff6600;font-weight:800;">TRY</span> book1.aidorzeczy.com</a></div>
           <!--
-            ⚠️ BOOK 1 — Po publikacji podmień href na właściwy link Amazon:
-            <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            ════════════════════════════════════════════════════════════════
+            ✅ BOOK 1 — OPUBLIKOWANA NA AMAZON
+            Booklinker:  https://mybook.to/DontFearAI-Hub
+            ASIN:        B0GXR8GK2L
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
           <a href="https://www.amazon.com/review/create-review?asin=B0GXR8GK2L" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
         </div>
       </div>
 
-      ```
-
-Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny, a pozioma belka z promptami wróci do swojego normalnego, nieklikalnego stanu.
       <!-- ── BOOK 2 ── -->
       <div class="book-card">
         <div class="book-cover-wrap">
@@ -1058,17 +1104,27 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-num-badge">2</div>
         </div>
         <div class="book-info">
-          <div class="book-number">Book 2 · Available Now</div>
+          <div class="book-number">Book 2 · Coming Soon</div>
           <h3 class="book-title">Organisation &amp; Planning</h3>
           <p class="book-desc">Sunday evening — what's for dinner, where did the week go? Drop your fridge contents into chat and get a full meal plan, shopping list, and weekly schedule. Five hours back, every single week.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book2.aidorzeczy.com" target="_blank" rel="noopener">book2.aidorzeczy.com</a></div>
+
           <!--
-            ⚠️ BOOK 2 — Po publikacji podmień href na właściwy link Amazon:
-            Buy:    <a href="https://www.amazon.com/dp/ASIN-2" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
-            Review: <a href="https://www.amazon.com/review/create-review?asin=ASIN-2" target="_blank" rel="noopener noreferrer">Napisz recenzję</a>
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 2 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 2 · Coming Soon" na "Book 2 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub2" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK2" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK2 na rzeczywisty ASIN książki (np. B0XXXXXXXX)
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub2 jest aktywny
+            ════════════════════════════════════════════════════════════════
           -->
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1079,17 +1135,27 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-num-badge">3</div>
         </div>
         <div class="book-info">
-          <div class="book-number">Book 3 · Available Now</div>
+          <div class="book-number">Book 3 · Coming Soon</div>
           <h3 class="book-title">Household Budget &amp; Everyday Money</h3>
           <p class="book-desc">End of the month, less money than expected — and you did nothing extravagant. Paste last month's transactions, get a plain-English breakdown, five savings ideas, and a budget you'll actually stick to.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book3.aidorzeczy.com" target="_blank" rel="noopener">book3.aidorzeczy.com</a></div>
+
           <!--
-            ⚠️ BOOK 3 — Po publikacji podmień href na właściwy link Amazon:
-            Buy:    <a href="https://www.amazon.com/dp/ASIN-3" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
-            Review: <a href="https://www.amazon.com/review/create-review?asin=ASIN-3" target="_blank" rel="noopener noreferrer">Napisz recenzję</a>
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 3 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 3 · Coming Soon" na "Book 3 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub3" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK3" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK3 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub3 jest aktywny
+            ════════════════════════════════════════════════════════════════
           -->
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1100,16 +1166,26 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-num-badge">4</div>
         </div>
         <div class="book-info">
-          <div class="book-number">Book 4 · Available Now</div>
+          <div class="book-number">Book 4 · Coming Soon</div>
           <h3 class="book-title">Movies &amp; What to Watch</h3>
           <p class="book-desc">You've been scrolling for forty minutes. Nothing looks right. Tell AI who's watching, what kind of evening it is, what you've seen — and get a perfect match in under two minutes.</p>
+
           <!--
-            ⚠️ BOOK 4 — Po publikacji podmień href na właściwy link Amazon:
-            Buy:    <a href="https://www.amazon.com/dp/ASIN-4" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
-            Review: <a href="https://www.amazon.com/review/create-review?asin=ASIN-4" target="_blank" rel="noopener noreferrer">Napisz recenzję</a>
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 4 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 4 · Coming Soon" na "Book 4 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub4" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK4" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK4 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub4 jest aktywny
+            ════════════════════════════════════════════════════════════════
           -->
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1123,7 +1199,22 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-number">Book 5 · Coming Soon</div>
           <h3 class="book-title">Bedtime Stories for Your Child</h3>
           <p class="book-desc">"Tell me a story." Four words that feel like a mountain at 9pm. Get a completely original tale built around your child's name, favourite animal, and best friend — every single night, in five minutes.</p>
-          <a href="https://www.amazon.com/books" class="book-soon-btn" target="_blank" rel="noopener">&#x23F3; Coming Soon on Amazon</a>
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 5 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 5 · Coming Soon" na "Book 5 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub5" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK5" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK5 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub5 jest aktywny
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1137,7 +1228,22 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-number">Book 6 · Coming Soon</div>
           <h3 class="book-title">Games &amp; Fun</h3>
           <p class="book-desc">Everyone is in the same room. Nobody knows what to do. Generate complete, ready-to-play games tailored to the ages, interests, and energy level of whoever is actually there — in under two minutes.</p>
-          <a href="https://www.amazon.com/books" class="book-soon-btn" target="_blank" rel="noopener">&#x23F3; Coming Soon on Amazon</a>
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 6 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 6 · Coming Soon" na "Book 6 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub6" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK6" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK6 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub6 jest aktywny
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1151,7 +1257,22 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-number">Book 7 · Coming Soon</div>
           <h3 class="book-title">Calm Parenting</h3>
           <p class="book-desc">You said you wouldn't lose your temper. Then you did — again. Get calmer, clearer words for the flashpoints that push every parent past their limit: the standoff, the sibling war, the refused request asked a seventh time.</p>
-          <a href="https://www.amazon.com/books" class="book-soon-btn" target="_blank" rel="noopener">&#x23F3; Coming Soon on Amazon</a>
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 7 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 7 · Coming Soon" na "Book 7 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub7" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK7" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK7 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub7 jest aktywny
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1165,7 +1286,22 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-number">Book 8 · Coming Soon</div>
           <h3 class="book-title">Gifts &amp; What to Buy</h3>
           <p class="book-desc">Birthday in four days. No idea what to buy. Everything online looks too impersonal or too expensive. Describe the person and the occasion — get a thoughtful, tailored shortlist in under two minutes.</p>
-          <a href="https://www.amazon.com/books" class="book-soon-btn" target="_blank" rel="noopener">&#x23F3; Coming Soon on Amazon</a>
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 8 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 8 · Coming Soon" na "Book 8 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK8" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK8 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub8 jest aktywny
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1179,7 +1315,22 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
           <div class="book-number">Book 9 · Coming Soon</div>
           <h3 class="book-title">Wishes &amp; Greetings</h3>
           <p class="book-desc">The card is in front of you. The pen is in your hand. Every sentence sounds too formal, too casual, or just not right. Describe the person and the tone — get warm, personal words that sound exactly like you.</p>
-          <a href="https://www.amazon.com/books" class="book-soon-btn" target="_blank" rel="noopener">&#x23F3; Coming Soon on Amazon</a>
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ⚠️  BOOK 9 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
+            ════════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 9 · Coming Soon" na "Book 9 · Available Now"
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
+            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+
+            <a href="https://mybook.to/DontFearAI-Hub9" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK9" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+
+            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK9 na rzeczywisty ASIN książki
+            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub9 jest aktywny
+            ════════════════════════════════════════════════════════════════
+          -->
+          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
       </div>
 
@@ -1403,16 +1554,21 @@ Ten zapis gwarantuje, że przyciski kończą się dokładnie tam, gdzie powinny,
   <p>Part of the <strong style="color:rgba(255,255,255,0.5)">Don't Fear AI</strong> book series · ebooks.aidorzeczy.com</p>
   <div class="footer-links">
     <!--
-      ⚠️ Po publikacji podmień href="#books" na właściwe linki Amazon dla każdej książki:
-      Book 1 Buy: <a href="https://www.amazon.com/dp/ASIN-1" target="_blank" rel="noopener noreferrer">Book 1 on Amazon</a>
-      Book 2 Buy: <a href="https://www.amazon.com/dp/ASIN-2" target="_blank" rel="noopener noreferrer">Book 2 on Amazon</a>
-      Book 3 Buy: <a href="https://www.amazon.com/dp/ASIN-3" target="_blank" rel="noopener noreferrer">Book 3 on Amazon</a>
-      Book 4 Buy: <a href="https://www.amazon.com/dp/ASIN-4" target="_blank" rel="noopener noreferrer">Book 4 on Amazon</a>
+      ════════════════════════════════════════════════════════════════════════
+      ⚠️  STOPKA — LINKI DO POSZCZEGÓLNYCH KSIĄŻEK NA AMAZON
+      ════════════════════════════════════════════════════════════════════════
+      Po publikacji każdej kolejnej książki, zmień href="#books" na właściwy
+      link Booklinker, np: href="https://mybook.to/DontFearAI-Hub2"
+      ════════════════════════════════════════════════════════════════════════
     -->
-    <a href="#" target="_blank" rel="noopener noreferrer">Book 1 on Amazon</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">Book 2 on Amazon</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">Book 3 on Amazon</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">Book 4 on Amazon</a>
+    <!-- ✅ BOOK 1 — opublikowana, link aktywny -->
+    <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer">Book 1 on Amazon</a>
+    <!-- ⏳ BOOK 2 — po publikacji wpisz: href="https://mybook.to/DontFearAI-Hub2" -->
+    <a href="#books">Book 2 on Amazon</a>
+    <!-- ⏳ BOOK 3 — po publikacji wpisz: href="https://mybook.to/DontFearAI-Hub3" -->
+    <a href="#books">Book 3 on Amazon</a>
+    <!-- ⏳ BOOK 4 — po publikacji wpisz: href="https://mybook.to/DontFearAI-Hub4" -->
+    <a href="#books">Book 4 on Amazon</a>
   </div>
   <div class="footer-divider"></div>
   <p>&copy; 2026 Leszek Ignatowicz. All rights reserved.</p>
