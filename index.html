@@ -36,6 +36,22 @@
   • usunięto martwe linki w stopce
   • Books 2..9 zostały ujednolicone (wszystkie jako Coming Soon z gotowymi
     szablonami aktywacji)
+
+  ZMIANY v3.0 NEWSLETTER (maj 2026):
+  • newsletter URL zmieniony na https://dont-fear-ai.subscribepage.io/
+    (zastąpił newsletter.aidorzeczy.com — patrz strategia v3.0)
+  • sekcja #community przepisana w spójności z welcome mail v2.0:
+    headline "Turn AI into your execution engine. 10 minutes a day.",
+    sub z reframe "execution engines", bullety identyczne jak w mailu,
+    pomarańczowy button CTA "Show me the 10-minute workflow"
+  • dodano social proof: "Written by Leszek Ignatowicz — author of 4
+    books in the Don't Fear AI series" (autorytet autora zamiast
+    fałszywych liczb subskrybentów)
+  • dodano pływający pasek u dołu strony (.float-bar) — pojawia się
+    po przewinięciu hero, dismisable przez × (sessionStorage)
+  • hero CTA newsletter: "Wait! Before you go — grab your FREE AI
+    Personal Assistant!" → "Free: get the 10-minute AI workflow PDF →"
+    (usunięto sprzeczne pojęcie "AI Personal Assistant")
 ═══════════════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -973,6 +989,186 @@
   }
   .newsletter-legal a { color: rgba(255,255,255,0.5); text-decoration: underline; }
   .newsletter-legal a:hover { color: var(--gold-light); }
+
+  /* ── NEWSLETTER v3.0 — additional elements ── */
+  .newsletter-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(200,169,81,0.10);
+    border: 1px solid rgba(200,169,81,0.30);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .newsletter-h2-accent {
+    color: var(--gold-light);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .newsletter-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 28px;
+  }
+  .newsletter-bullets li {
+    position: relative;
+    padding: 6px 0 6px 28px;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .newsletter-bullets li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 0.95rem;
+  }
+  .newsletter-bullets li strong {
+    color: #fff;
+  }
+  .newsletter-bullets .bullet-meta {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+  .newsletter-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f97316;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 16px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(249,115,22,0.40);
+  }
+  .newsletter-cta-btn:hover {
+    background: #ea580c;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(249,115,22,0.55);
+  }
+  .newsletter-social-proof {
+    margin: 22px 0 16px;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .newsletter-social-proof em {
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Override old sub style for new layout */
+  .newsletter-section .newsletter-sub {
+    font-size: 1.08rem !important;
+    font-weight: 400 !important;
+    color: rgba(255,255,255,0.78) !important;
+    line-height: 1.65 !important;
+    margin: 12px 0 6px !important;
+    max-width: 640px;
+  }
+  .newsletter-section .newsletter-sub strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  /* ── FLOATING NEWSLETTER BAR ── */
+  .float-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 950;
+    background: linear-gradient(90deg, #0f0e0e 0%, #1a1818 50%, #0f0e0e 100%);
+    border-top: 2px solid var(--gold);
+    padding: 12px 20px;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .float-bar.visible {
+    transform: translateY(0);
+  }
+  .float-bar-text {
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+  }
+  .float-bar-text strong {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+  .float-bar-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f97316;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(249,115,22,0.40);
+    white-space: nowrap;
+  }
+  .float-bar-cta:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(249,115,22,0.55);
+  }
+  .float-bar-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+  }
+  .float-bar-close:hover {
+    color: var(--gold);
+  }
+  @media (max-width: 600px) {
+    .float-bar {
+      padding: 10px 14px 12px;
+      gap: 10px;
+    }
+    .float-bar-text {
+      font-size: 0.82rem;
+    }
+    .float-bar-cta {
+      font-size: 0.85rem;
+      padding: 9px 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1009,8 +1205,8 @@
 
   <h1>Don&rsquo;t Fear <em>AI</em></h1>
   
-  <a href="https://newsletter.aidorzeczy.com" style="color: #FFD700; text-decoration: underline; font-weight: bold;" class="hero-sub">
-      Wait! Before you go — grab your FREE AI Personal Assistant!
+  <a href="https://dont-fear-ai.subscribepage.io/" target="_blank" rel="noopener noreferrer" style="color: #FFD700; text-decoration: underline; font-weight: bold;" class="hero-sub">
+      Free: get the 10-minute AI workflow PDF →
     </a>
   
   <p class="hero-sub"><strong style="color:#F97316;">You already have ChatGPT. It's FREE.</strong> You're just not using it right. These nine short books give you the exact prompts — tested, formatted, ready to paste. No courses. No tech knowledge. No wasted evenings staring at a blank screen.</p>
@@ -1073,7 +1269,6 @@
         <p>Bedtime stories, family games, tough conversations — AI handles the prep so you can be present for the moment.</p>
       </div>
     </div>
-  </div>
 </section>
 
 <!-- ══ BOOKS GRID ══ -->
@@ -1540,22 +1735,41 @@
 <!-- ══ NEWSLETTER / COMMUNITY ══ -->
 <section class="newsletter-section" id="community">
   <div class="newsletter-inner">
+
+    <!-- Section label, consistent with v3.0 brand positioning -->
+    <span class="newsletter-label">FREE PDF · 10 MINUTES A DAY</span>
+
     <div class="newsletter-header">
       <span class="newsletter-icon">✉️</span>
-      <h2>Join the AI community and get your bonuses</h2>
+      <h2>Turn AI into your execution engine.<br><span class="newsletter-h2-accent">10 minutes a day.</span></h2>
     </div>
-    <p class="newsletter-sub">Sign up for my free newsletter and instantly receive your <strong>FREE Welcome Package: AI Personal Assistant</strong>. Discover how to seamlessly use AI throughout your day, from morning to evening.</p>
 
-    <!-- CTA — link do strony zapisu -->
+    <p class="newsletter-sub">
+      AI isn&rsquo;t a thinking partner — it&rsquo;s a system that <strong>executes when you direct it right</strong>. Get the free PDF with the exact workflow for daily writing, planning, and summarizing — in under 10 minutes.
+    </p>
+
+    <!-- Expectation bullets — match welcome email v2.0 verbatim -->
+    <ul class="newsletter-bullets">
+      <li>2–3 short, practical emails a month <span class="bullet-meta">(under 2 minutes each)</span></li>
+      <li>Workflows you can use the same day</li>
+      <li>Heads-up when new books or tools drop</li>
+      <li>No spam, no hype, no <strong>$997 courses</strong></li>
+    </ul>
+
+    <!-- Primary CTA — orange button matches v3.0 brand accent -->
     <div class="newsletter-cta-wrap">
-      <span class="newsletter-cta-pointer">&#x1F449;</span>
-      <a href="https://newsletter.aidorzeczy.com/" target="_blank" rel="noopener noreferrer">
-        Sign me up &rarr;
+      <a href="https://dont-fear-ai.subscribepage.io/" target="_blank" rel="noopener noreferrer" class="newsletter-cta-btn">
+        → Show me the 10-minute workflow
       </a>
     </div>
 
-    <p class="newsletter-no-spam">No spam. Unsubscribe at any time.</p>
-    <p class="newsletter-legal">By signing up, you agree to receive my newsletter and the free bonus. We process your email via MailerLite to deliver this content. You can unsubscribe at any time. See our <a href="https://privacy.aidorzeczy.com" target="_blank" rel="noopener noreferrer"><strong>Privacy Policy</strong></a> for details.</p>
+    <!-- Social proof line — author authority, consistent with welcome email -->
+    <p class="newsletter-social-proof">
+      <em>Written by Leszek Ignatowicz — author of 4 books in the Don&rsquo;t Fear AI series.</em>
+    </p>
+
+    <p class="newsletter-no-spam">No spam. Unsubscribe anytime. No hard feelings.</p>
+    <p class="newsletter-legal">By signing up, you agree to receive the newsletter and the free PDF. Email processed via MailerLite. Unsubscribe at any time via the link in every email. See our <a href="https://privacy.aidorzeczy.com" target="_blank" rel="noopener noreferrer"><strong>Privacy Policy</strong></a>.</p>
   </div>
 </section>
 
@@ -1658,8 +1872,64 @@
       }
     });
   });
+
+  // ── FLOATING NEWSLETTER BAR ──
+  // Appears after the user scrolls past the hero. Closable; preference
+  // is kept for the current browser session only (sessionStorage), so
+  // returning visitors still see it on their next visit.
+  var floatBar = document.getElementById('floatBar');
+  var floatBarClose = document.getElementById('floatBarClose');
+  var heroSection = document.querySelector('.hero');
+  var floatBarDismissed = false;
+  try {
+    floatBarDismissed = sessionStorage.getItem('dfa_floatBar_dismissed') === '1';
+  } catch (e) { /* sessionStorage may be unavailable; treat as not dismissed */ }
+
+  if (floatBar && heroSection && !floatBarDismissed) {
+    var lastShown = false;
+    var checkFloatBar = function() {
+      var heroBottom = heroSection.getBoundingClientRect().bottom;
+      var shouldShow = heroBottom < 0;
+      if (shouldShow !== lastShown) {
+        if (shouldShow) {
+          floatBar.classList.add('visible');
+        } else {
+          floatBar.classList.remove('visible');
+        }
+        lastShown = shouldShow;
+      }
+    };
+    window.addEventListener('scroll', checkFloatBar, { passive: true });
+    window.addEventListener('resize', checkFloatBar, { passive: true });
+    checkFloatBar();
+  }
+
+  if (floatBarClose && floatBar) {
+    floatBarClose.addEventListener('click', function() {
+      floatBar.classList.remove('visible');
+      try {
+        sessionStorage.setItem('dfa_floatBar_dismissed', '1');
+      } catch (e) { /* ignore — bar just stays hidden for this session */ }
+    });
+  }
 })();
 </script>
+
+<!-- ══ FLOATING NEWSLETTER BAR ══
+     Shows after user scrolls past the hero. Designed to convert
+     visitors who came for books but might also subscribe to the
+     newsletter for the free 10-minute workflow PDF.
+     Dismissed via the × button — preference saved in sessionStorage
+     so it doesn't reappear during the same browsing session. -->
+<aside class="float-bar" id="floatBar" role="complementary" aria-label="Newsletter signup">
+  <button class="float-bar-close" id="floatBarClose" aria-label="Close newsletter bar">×</button>
+  <p class="float-bar-text">
+    <strong>Free PDF:</strong> the 10-minute AI workflow for daily writing, planning &amp; summarizing.
+  </p>
+  <a href="https://dont-fear-ai.subscribepage.io/" target="_blank" rel="noopener noreferrer" class="float-bar-cta">
+    Get it free →
+  </a>
+</aside>
 
 </body>
 </html>
