@@ -472,6 +472,72 @@
     text-align: center;
   }
 
+  /* ── REVIEW TOGGLE (rozwijana plakietka z instrukcją) ── */
+  .review-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    background: var(--orange);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    font-family: inherit;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 9px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .review-toggle:hover {
+    background: var(--orange-light);
+    transform: translateY(-2px);
+  }
+  .review-toggle .chev {
+    transition: transform 0.25s;
+    font-size: 0.7rem;
+  }
+  .review-toggle[aria-expanded="true"] .chev {
+    transform: rotate(180deg);
+  }
+  .review-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255,102,0,0.07);
+    border-radius: 6px;
+    margin-top: 7px;
+  }
+  .review-panel.open {
+    max-height: 340px;
+  }
+  .review-panel-inner {
+    padding: 14px 16px;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .review-panel-inner .rp-head {
+    font-weight: 800;
+    margin: 0 0 6px;
+  }
+  .review-panel-inner .rp-note {
+    font-style: italic;
+    opacity: 0.8;
+    margin: 0 0 10px;
+    font-size: 0.8rem;
+  }
+  .review-panel-inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .review-panel-inner li {
+    margin: 5px 0;
+  }
+
   /* ── WHY ── */
   .why-section { background: var(--ink); padding: 80px 24px; }
   .why-inner { max-width: 1100px; margin: 0 auto; }
@@ -1298,7 +1364,18 @@
             ════════════════════════════════════════════════════════════════
           -->
           <a href="https://mybook.to/DontFearAI-Hub" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-          <a href="https://www.amazon.com/review/create-review?asin=B0GXR8GK2L" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+          <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+          <div class="review-panel">
+            <div class="review-panel-inner">
+              <p class="rp-head">How to review on Amazon:</p>
+              <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+              <ul>
+                <li>&#x1F447; Scroll down to the bottom of the page</li>
+                <li>&#x2B50; Find the Customer Reviews section</li>
+                <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1314,23 +1391,19 @@
           <p class="book-desc">Sunday evening — what's for dinner, where did the week go? Drop your fridge contents into chat and get a full meal plan, shopping list, and weekly schedule. Five hours back, every single week.</p>
           <div class="copy-paste-note">Every prompt is ready to copy &amp; paste on the companion page — <a href="https://book2.aidorzeczy.com" target="_blank" rel="noopener">book2.aidorzeczy.com</a></div>
 
-          <!--
-            ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 2 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 2 · Coming Soon" na "Book 2 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
-
-            <a href="https://mybook.to/DontFearAI-Hub2" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK2" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
-
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK2 na rzeczywisty ASIN książki (np. B0XXXXXXXX)
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub2 jest aktywny
-            ════════════════════════════════════════════════════════════════
-          -->
           <a href="https://mybook.to/DontFearAI-Hub2" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-          <a href="https://www.amazon.com/review/create-review?asin=B0H2JCDBXM" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
+          <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+          <div class="review-panel">
+            <div class="review-panel-inner">
+              <p class="rp-head">How to review on Amazon:</p>
+              <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+              <ul>
+                <li>&#x1F447; Scroll down to the bottom of the page</li>
+                <li>&#x2B50; Find the Customer Reviews section</li>
+                <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1348,20 +1421,42 @@
 
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 3 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 3 · Coming Soon" na "Book 3 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
-
-            <a href="https://mybook.to/DontFearAI-Hub3" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK3" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
-
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK3 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub3 jest aktywny
+            BOOK 3 — STAN OBECNY (przed publikacją)
+            Przycisk "Available Soon" jest nieaktywny (placeholder amazon.com/books/).
+            Plakietka recenzji jest już aktywna (rozwijana instrukcja).
             ════════════════════════════════════════════════════════════════
           -->
-          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
+          <a href="https://www.amazon.com/books/" target="_blank" rel="noopener noreferrer" class="book-buy-btn" style="background:#b0a898;opacity:0.9;">&#x23F3; Available Soon</a>
+          <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+          <div class="review-panel">
+            <div class="review-panel-inner">
+              <p class="rp-head">How to review on Amazon:</p>
+              <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+              <ul>
+                <li>&#x1F447; Scroll down to the bottom of the page</li>
+                <li>&#x2B50; Find the Customer Reviews section</li>
+                <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+              </ul>
+            </div>
+          </div>
+
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ✅ BOOK 3 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ════════════════════════════════════════════════════════════════
+            INSTRUKCJA:
+            KROK 1: Zmień powyżej "Book 3 · Coming Soon" na "Book 3 · Available Now".
+            KROK 2: USUŃ powyższy przycisk "Available Soon" (linia z &#x23F3; Available Soon).
+            KROK 3: Odkomentuj poniższy aktywny przycisk Buy (usuń ten komentarz)
+                    i wklej go w miejsce usuniętego przycisku "Available Soon".
+            KROK 4: Sprawdź, czy link Booklinker DontFearAI-Hub3 jest aktywny.
+            Plakietka recenzji już działa — NIE trzeba jej ruszać.
+            ────────────────────────────────────────────────────────────────
+
+            <a href="https://mybook.to/DontFearAI-Hub3" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+
+            ════════════════════════════════════════════════════════════════
+          -->
         </div>
       </div>
 
@@ -1378,20 +1473,42 @@
 
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 4 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 4 · Coming Soon" na "Book 4 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
-
-            <a href="https://mybook.to/DontFearAI-Hub4" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK4" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
-
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK4 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub4 jest aktywny
+            BOOK 4 — STAN OBECNY (przed publikacją)
+            Przycisk "Available Soon" jest nieaktywny (placeholder amazon.com/books/).
+            Plakietka recenzji jest już aktywna (rozwijana instrukcja).
             ════════════════════════════════════════════════════════════════
           -->
-          <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
+          <a href="https://www.amazon.com/books/" target="_blank" rel="noopener noreferrer" class="book-buy-btn" style="background:#b0a898;opacity:0.9;">&#x23F3; Available Soon</a>
+          <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+          <div class="review-panel">
+            <div class="review-panel-inner">
+              <p class="rp-head">How to review on Amazon:</p>
+              <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+              <ul>
+                <li>&#x1F447; Scroll down to the bottom of the page</li>
+                <li>&#x2B50; Find the Customer Reviews section</li>
+                <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+              </ul>
+            </div>
+          </div>
+
+          <!--
+            ════════════════════════════════════════════════════════════════
+            ✅ BOOK 4 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ════════════════════════════════════════════════════════════════
+            INSTRUKCJA:
+            KROK 1: Zmień powyżej "Book 4 · Coming Soon" na "Book 4 · Available Now".
+            KROK 2: USUŃ powyższy przycisk "Available Soon" (linia z &#x23F3; Available Soon).
+            KROK 3: Odkomentuj poniższy aktywny przycisk Buy (usuń ten komentarz)
+                    i wklej go w miejsce usuniętego przycisku "Available Soon".
+            KROK 4: Sprawdź, czy link Booklinker DontFearAI-Hub4 jest aktywny.
+            Plakietka recenzji już działa — NIE trzeba jej ruszać.
+            ────────────────────────────────────────────────────────────────
+
+            <a href="https://mybook.to/DontFearAI-Hub4" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
+
+            ════════════════════════════════════════════════════════════════
+          -->
         </div>
       </div>
 
@@ -1407,18 +1524,32 @@
           <p class="book-desc">"Tell me a story." Four words that feel like a mountain at 9pm. Get a completely original tale built around your child's name, favourite animal, and best friend — every single night, in five minutes.</p>
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 5 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 5 · Coming Soon" na "Book 5 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+            ✅ BOOK 5 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ═════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 5 · Coming Soon" na "Book 5 · Available Now".
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn).
+            KROK 3: Wklej w jego miejsce poniższy aktywny przycisk Buy:
 
             <a href="https://mybook.to/DontFearAI-Hub5" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK5" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
 
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK5 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub5 jest aktywny
-            ════════════════════════════════════════════════════════════════
+            KROK 4 (opcjonalnie): aby dodać rozwijaną plakietkę recenzji (jak w Books 1–4),
+                    wklej pod przyciskiem Buy ten blok:
+
+            <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+            <div class="review-panel">
+              <div class="review-panel-inner">
+                <p class="rp-head">How to review on Amazon:</p>
+                <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+                <ul>
+                  <li>&#x1F447; Scroll down to the bottom of the page</li>
+                  <li>&#x2B50; Find the Customer Reviews section</li>
+                  <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+                </ul>
+              </div>
+            </div>
+
+            KROK 5: Sprawdź, czy link Booklinker DontFearAI-Hub5 jest aktywny.
+            ═════════════════════════════════════════════════════════════
           -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1436,18 +1567,32 @@
           <p class="book-desc">Everyone is in the same room. Nobody knows what to do. Generate complete, ready-to-play games tailored to the ages, interests, and energy level of whoever is actually there — in under two minutes.</p>
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 6 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 6 · Coming Soon" na "Book 6 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+            ✅ BOOK 6 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ═════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 6 · Coming Soon" na "Book 6 · Available Now".
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn).
+            KROK 3: Wklej w jego miejsce poniższy aktywny przycisk Buy:
 
             <a href="https://mybook.to/DontFearAI-Hub6" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK6" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
 
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK6 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub6 jest aktywny
-            ════════════════════════════════════════════════════════════════
+            KROK 4 (opcjonalnie): aby dodać rozwijaną plakietkę recenzji (jak w Books 1–4),
+                    wklej pod przyciskiem Buy ten blok:
+
+            <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+            <div class="review-panel">
+              <div class="review-panel-inner">
+                <p class="rp-head">How to review on Amazon:</p>
+                <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+                <ul>
+                  <li>&#x1F447; Scroll down to the bottom of the page</li>
+                  <li>&#x2B50; Find the Customer Reviews section</li>
+                  <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+                </ul>
+              </div>
+            </div>
+
+            KROK 5: Sprawdź, czy link Booklinker DontFearAI-Hub6 jest aktywny.
+            ═════════════════════════════════════════════════════════════
           -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1465,18 +1610,32 @@
           <p class="book-desc">You said you wouldn't lose your temper. Then you did — again. Get calmer, clearer words for the flashpoints that push every parent past their limit: the standoff, the sibling war, the refused request asked a seventh time.</p>
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 7 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 7 · Coming Soon" na "Book 7 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+            ✅ BOOK 7 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ═════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 7 · Coming Soon" na "Book 7 · Available Now".
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn).
+            KROK 3: Wklej w jego miejsce poniższy aktywny przycisk Buy:
 
             <a href="https://mybook.to/DontFearAI-Hub7" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK7" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
 
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK7 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub7 jest aktywny
-            ════════════════════════════════════════════════════════════════
+            KROK 4 (opcjonalnie): aby dodać rozwijaną plakietkę recenzji (jak w Books 1–4),
+                    wklej pod przyciskiem Buy ten blok:
+
+            <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+            <div class="review-panel">
+              <div class="review-panel-inner">
+                <p class="rp-head">How to review on Amazon:</p>
+                <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+                <ul>
+                  <li>&#x1F447; Scroll down to the bottom of the page</li>
+                  <li>&#x2B50; Find the Customer Reviews section</li>
+                  <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+                </ul>
+              </div>
+            </div>
+
+            KROK 5: Sprawdź, czy link Booklinker DontFearAI-Hub7 jest aktywny.
+            ═════════════════════════════════════════════════════════════
           -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1494,18 +1653,32 @@
           <p class="book-desc">Birthday in four days. No idea what to buy. Everything online looks too impersonal or too expensive. Describe the person and the occasion — get a thoughtful, tailored shortlist in under two minutes.</p>
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 8 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 8 · Coming Soon" na "Book 8 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+            ✅ BOOK 8 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ═════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 8 · Coming Soon" na "Book 8 · Available Now".
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn).
+            KROK 3: Wklej w jego miejsce poniższy aktywny przycisk Buy:
 
             <a href="https://mybook.to/DontFearAI-Hub8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK8" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
 
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK8 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub8 jest aktywny
-            ════════════════════════════════════════════════════════════════
+            KROK 4 (opcjonalnie): aby dodać rozwijaną plakietkę recenzji (jak w Books 1–4),
+                    wklej pod przyciskiem Buy ten blok:
+
+            <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+            <div class="review-panel">
+              <div class="review-panel-inner">
+                <p class="rp-head">How to review on Amazon:</p>
+                <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+                <ul>
+                  <li>&#x1F447; Scroll down to the bottom of the page</li>
+                  <li>&#x2B50; Find the Customer Reviews section</li>
+                  <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+                </ul>
+              </div>
+            </div>
+
+            KROK 5: Sprawdź, czy link Booklinker DontFearAI-Hub8 jest aktywny.
+            ═════════════════════════════════════════════════════════════
           -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1523,18 +1696,32 @@
           <p class="book-desc">The card is in front of you. The pen is in your hand. Every sentence sounds too formal, too casual, or just not right. Describe the person and the tone — get warm, personal words that sound exactly like you.</p>
           <!--
             ════════════════════════════════════════════════════════════════
-            ⚠️  BOOK 9 — INSTRUKCJA AKTYWACJI PO PUBLIKACJI NA AMAZON
-            ════════════════════════════════════════════════════════════════
-            KROK 1: Zmień powyżej "Book 9 · Coming Soon" na "Book 9 · Available Now"
-            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn)
-            KROK 3: Wklej w jego miejsce te 2 aktywne przyciski:
+            ✅ BOOK 9 — AKTYWACJA PO PUBLIKACJI (wariant: TYLKO BUY)
+            ═════════════════════════════════════════════════════════════
+            KROK 1: Zmień powyżej "Book 9 · Coming Soon" na "Book 9 · Available Now".
+            KROK 2: USUŃ przycisk "Coming Soon" (linia poniżej z book-soon-btn).
+            KROK 3: Wklej w jego miejsce poniższy aktywny przycisk Buy:
 
             <a href="https://mybook.to/DontFearAI-Hub9" target="_blank" rel="noopener noreferrer" class="book-buy-btn">&#x1F6D2; Buy on Amazon</a>
-            <a href="https://www.amazon.com/review/create-review?asin=TUTAJ_WSTAW_ASIN_BOOK9" target="_blank" rel="noopener noreferrer" class="book-review-btn">&#x2B50; Loved it? Leave a review — it changes everything.</a>
 
-            KROK 4: W drugim przycisku zamień TUTAJ_WSTAW_ASIN_BOOK9 na rzeczywisty ASIN książki
-            KROK 5: Sprawdź, czy link Booklinker https://mybook.to/DontFearAI-Hub9 jest aktywny
-            ════════════════════════════════════════════════════════════════
+            KROK 4 (opcjonalnie): aby dodać rozwijaną plakietkę recenzji (jak w Books 1–4),
+                    wklej pod przyciskiem Buy ten blok:
+
+            <button type="button" class="review-toggle" aria-expanded="false" onclick="toggleReview(this)">&#x2B50; Loved it? Leave a review — it changes everything. <span class="chev">&#x25BC;</span></button>
+            <div class="review-panel">
+              <div class="review-panel-inner">
+                <p class="rp-head">How to review on Amazon:</p>
+                <p class="rp-note">(Note: The review section is located on the exact same Amazon page where you buy the book)</p>
+                <ul>
+                  <li>&#x1F447; Scroll down to the bottom of the page</li>
+                  <li>&#x2B50; Find the Customer Reviews section</li>
+                  <li>&#x270D;&#xFE0F; Click the Write a customer review button</li>
+                </ul>
+              </div>
+            </div>
+
+            KROK 5: Sprawdź, czy link Booklinker DontFearAI-Hub9 jest aktywny.
+            ═════════════════════════════════════════════════════════════
           -->
           <a href="#books" class="book-soon-btn">&#x23F3; Coming Soon on Amazon</a>
         </div>
@@ -1799,7 +1986,32 @@
   <p>&copy; 2026 Leszek Ignatowicz. All rights reserved.</p>
 </footer>
 
+
+
+<!-- ══ FLOATING NEWSLETTER BAR ══
+     Shows after user scrolls past the hero. Designed to convert
+     visitors who came for books but might also subscribe to the
+     newsletter for the free 10-minute workflow PDF.
+     Dismissed via the × button — preference saved in sessionStorage
+     so it doesn't reappear during the same browsing session. -->
+<aside class="float-bar" id="floatBar" role="complementary" aria-label="Newsletter signup">
+  <button class="float-bar-close" id="floatBarClose" aria-label="Close newsletter bar">×</button>
+  <p class="float-bar-text">
+    <strong>Free PDF:</strong> the 10-minute AI workflow for daily writing, planning &amp; summarizing.
+  </p>
+  <a href="https://dont-fear-ai.subscribepage.io/" target="_blank" rel="noopener noreferrer" class="float-bar-cta">
+    Get it free →
+  </a>
+</aside>
+
 <script>
+// ── Rozwijana plakietka z instrukcją recenzji (Books 1–4) ──
+function toggleReview(btn) {
+  var panel = btn.nextElementSibling;
+  var open = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!open));
+  if (panel) panel.classList.toggle('open', !open);
+}
 (function() {
   var nav = document.getElementById('sideNav');
   var trigger = document.getElementById('who-this-is-for');
@@ -1914,22 +2126,6 @@
   }
 })();
 </script>
-
-<!-- ══ FLOATING NEWSLETTER BAR ══
-     Shows after user scrolls past the hero. Designed to convert
-     visitors who came for books but might also subscribe to the
-     newsletter for the free 10-minute workflow PDF.
-     Dismissed via the × button — preference saved in sessionStorage
-     so it doesn't reappear during the same browsing session. -->
-<aside class="float-bar" id="floatBar" role="complementary" aria-label="Newsletter signup">
-  <button class="float-bar-close" id="floatBarClose" aria-label="Close newsletter bar">×</button>
-  <p class="float-bar-text">
-    <strong>Free PDF:</strong> the 10-minute AI workflow for daily writing, planning &amp; summarizing.
-  </p>
-  <a href="https://dont-fear-ai.subscribepage.io/" target="_blank" rel="noopener noreferrer" class="float-bar-cta">
-    Get it free →
-  </a>
-</aside>
 
 </body>
 </html>
